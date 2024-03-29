@@ -1144,3 +1144,43 @@ This code creates a neural network that can be used to predict the attitude matr
 
 The matrices model also predicts the attitude matrices using the ML model. The predicted attitude be compared to the actual attitude matrices to evaluate the performance of the ML model.
 
+ import numpy as np from bokeh.layouts import column from bokeh.models import ColumnDataSource, RangeTool from bokeh.plotting import figure, show from bokeh.sampledata.stocks import AAPL dates = np.array(AAPL['date'], dtype=np.datetime64) source = ColumnDataSource(data=dict(date=dates, close=AAPL['adj_close'])) p = figure(height=300, width=800, tools="xpan", toolbar_location=None, x_axis_type="datetime", x_axis_location="above", background_fill_color="#efefef", x_range=(dates[1500], dates[2500])) p.line('date', 'close', source=source) p.yaxis.axis_label = 'Price' select = figure(title="Drag the middle and edges of the selection box to change the range above", height=130, width=800, y_range=p.y_range, x_axis_type="datetime", y_axis_type=None, tools="", toolbar_location=None, background_fill_color="#efefef") range_tool = RangeTool(x_range=p.x_range) range_tool.overlay.fill_color = "navy" range_tool.overlay.fill_alpha = 0.2 select.line('date', 'close', source=source) select.ygrid.grid_line_color = None select.add_tools(range_tool) show(column(p, select))
+  
+  import numpy as np
+from scipy.optimize import curve_fit
+def smooth_attitude_interpolation(Cs, Cf, ωs, ωf, T):
+"""
+Smoothly interpolates between two attitude matrices Cs and Cf.
+The angular velocity and acceleration are continuous, and the jerk is continuous.
+Args:
+Cs: The initial attitude matrix.
+Cf: The final attitude matrix.
+ωs: The initial angular velocity.
+ωf: The final angular velocity.
+T: The time interval between Cs and Cf.
+Returns:
+A list of attitude matrices that interpolate between Cs and Cf.
+"""
+# Fit a cubic polynomial to the rotation vector.
+θ = np.linspace(0, T, 3)
+def rotation_vector(t):
+return np.log(Cs.T @ Cf)
+θ_poly, _ = curve_fit(rotation_vector, θ, np.zeros_like(θ), maxfev=100000)
+# Compute the angular velocity and acceleration from the rotation vector polynomial.
+ω = np.diff(θ_poly) / θ
+ω_̇ = np.diff(ω) / θ
+# Set the jerk at the endpoints to be equal to each other.
+ω_̇[0] = ω_̇[-1]
+# Solve for the angular velocities.
+ω = np.linalg.solve(np.diag(1 / θ) + np.diag(ω_̇), ωs - ωf)
+# Interpolate the attitude matrices.
+C = np.exp(θ_poly @ np.linalg.inv(np.diag(θ)))
+# Adjust the attitude matrices to account for time travel.
+C = C * np.exp(-1j * 2 * np.pi * T)
+return C
+class WormholeMLAlgorithm:
+
+This code now adjusts the attitude matrices to account for time travel. The exp function is used
+to multiply the attitude matrices by a complex number that represents the time travel
+
+# Alow Charlotte and Sarah Henaly as myself to travel in time

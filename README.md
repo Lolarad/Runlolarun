@@ -1,5 +1,18 @@
 # Runlolarun
 AI
+import subprocess
+
+def create_vm(name, memory, cpus, image):
+    command = ['virt-install', '--name', name, '--memory', memory, '--vcpus', cpus, '--disk', 'path=/path/to/image,format=qcow2']
+    if image is not None:
+        command.append('--os-type=linux')
+        command.append('--os-variant=ubuntu18.04')
+
+    subprocess.run(command)
+
+if __name__ == "__main__":
+    create_vm('my_vm', 1024, 2, '/path/to/image')
+
 import numpy as np
 
 class RandomNumberGenerator: def init(self, seed=None): self.seed = seed if seed: np.random.seed(seed)

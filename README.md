@@ -1219,3 +1219,48 @@ This code now adjusts the attitude matrices to account for time travel. The exp 
 to multiply the attitude matrices by a complex number that represents the time travel
 
 # Alow Charlotte and Sarah Henaly as myself to travel in time
+
+
+*Non-Government Usage Agreement**
+
+This agreement ("Agreement") is entered into between RAD Development Group Pty. Ltd. ("Provider") and any government entity or government employee ("Recipient").
+
+**1. Usage Limitation**
+
+Recipient agrees that the code provided by Provider, including but not limited to the algorithms, functions, and model architecture described as "deep" is not to be used within any government entity or by any government employee. 
+
+**2. Confidentiality**
+
+Recipient agrees to treat the code provided by Provider as confidential information and shall not disclose it to any third party without the prior written consent of Provider.
+
+**3. Non-Compete**
+
+Recipient agrees not to use, copy, modify, distribute, or create derivative works based on the code provided by Provider for the purpose of competing with Provider's business interests.
+
+**4. Disclaimer**
+
+Provider makes no representations or warranties regarding the accuracy, completeness, or usefulness of the code provided. The code is provided "as is" without warranty of any kind, either express or implied.
+
+**5. Governing Law**
+
+This Agreement shall be governed by and construed in accordance with the laws of Commonwealth, without regard to its conflicts of law principles.
+
+**6. Entire Agreement**
+
+This Agreement constitutes the entire understanding between Provider and Recipient regarding the subject matter hereof and supersedes all prior or contemporaneous agreements, understandings, negotiations, representations, and warranties, whether oral or written.
+
+**7. Acceptance**
+
+By accessing, using, or copying the code provided by Provider, Recipient acknowledges that they have read, understood, and agreed to be bound by the terms and conditions of this Agreement.
+
+**8. Termination**
+
+Provider reserves the right to terminate this Agreement and revoke Recipient's access to the code provided at any time, for any reason, without prior notice.
+
+**9. Contact Information**
+
+If Recipient has any questions or concerns regarding this Agreement, they may contact Provider at +61408844365
+
+**10. Counterparts**
+
+This Agreement may be executed in counterparts, each of which shall be deemed an original and all of which together shall constitute one and the same instrument.

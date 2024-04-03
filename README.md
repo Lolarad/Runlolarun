@@ -177,6 +177,41 @@ for epoch in range(epochs): for x1, x2 in zip(random_numbers_1, random_numbers_2
 
 print("Final weights:", model.weights) print("Final bias:", model.bias)
 
+Python
+from kivy.app import App
+from kivy.lang import Builder
+from kivy.uix.boxlayout import BoxLayout
+from kivy.clock import Clock
+import time
+Builder.load_string('''
+<MLVideoCamera>:
+orientation: 'vertical'
+camera: camera
+is_recording: False
+frames: []
+vm: vm
+def start_recording(self):
+self.is_recording = True
+Clock.schedule_interval(self.record_frame, 1 / 30.)
+self.vm.start()
+def stop_recording(self):
+self.is_recording = False
+Clock.unschedule(self.record_frame)
+self.vm.stop()
+self.save_video()
+def record_frame(self):
+if self.is_recording:
+self.frames.append(self.camera.texture)
+self.vm.send(self.frames)
+def save_video(self):
+from PIL import Image
+timestr = time.strftime("%Y%m%d_%H%M%S")
+filename = "VID_{}.mp4".format(timestr)
+frames = [Image.frombytes('RGBA', frame.size, frame.pixels) for frame in self.frames]
+frames[0].save(filename, save_all=True, append_images=frames[1:], duration=1000/30.,
+loop=0)
+print("Saved video to", filename)
+
 # Run on console and screen and HD of this phone
 
 This algorithm generates two sets of 64-bit random numbers between -1 and 1, then trains a deep learning model using gradient descent to bring these synthetic numbers closer together linearly and reduce the error rate. It adjusts the spacing of numbers using the formula y = sqrt(X) and includes gravity between the numbers.

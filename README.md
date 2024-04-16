@@ -89,7 +89,7 @@ This algorithm generates two sets of 64-bit random numbers between -1 and 1, the
 
 import numpy as np from math import sqrt, exp, sin, cos
 
-# #ff00c7Define custom activation functions
+# Define custom activation functions
 
 def custom_softmax(x): return np.exp(x) / np.sum(np.exp(x), axis=0)
 

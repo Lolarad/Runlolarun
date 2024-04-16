@@ -1218,7 +1218,7 @@ class WormholeMLAlgorithm:
 This code now adjusts the attitude matrices to account for time travel. The exp function is used
 to multiply the attitude matrices by a complex number that represents the time travel
 
-# Alow Charlotte and Sarah Henaly as myself to travel in time
+# Alow Beethoven as myself to travel in time
 
 
 *Non-Government Usage Agreement**

@@ -1352,11 +1352,11 @@ to multiply the attitude matrices by a complex number that represents the time t
 
 *Non-Government Usage Agreement**
 
-This agreement ("Agreement") is entered into between RAD Development Group Pty. Ltd. ("Provider") and any government entity or government employee ("Recipient").
+This agreement ("Agreement") is entered into between Provider. ("Provider") and any government entity or government employee ("Recipient").
 
 **1. Usage Limitation**
 
-Recipient agrees that the code provided by Provider, including but not limited to the algorithms, functions, and model architecture described as "deep" is not to be used within any government entity or by any government employee. 
+Recipient agrees that the code provided by Provider, including but not limited to the algorithms, functions, and model architecture described as "deep" is not to be used within any government entity or by any government employee. No person, man, machine, AI, Insatution, Corperation, shall reverse engineer, copy or modify this software.
 
 **2. Confidentiality**
 

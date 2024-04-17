@@ -1,7 +1,4 @@
-
-# MicroVM
-MicroVM
-Micro VM
+Runlolarun
 
 import numpy as np
 import qiskit
@@ -1356,7 +1353,7 @@ This agreement ("Agreement") is entered into between Provider. ("Provider") and 
 
 **1. Usage Limitation**
 
-Recipient agrees that the code provided by Provider, including but not limited to the algorithms, functions, and model architecture described as "deep" is not to be used within any government entity or by any government employee. No person, man, machine, AI, Insatution, Corperation, shall reverse engineer, copy or modify this software.
+Recipient agrees that the code provided by Provider, including but not limited to the algorithms, functions, and model architecture described as "deep" is not to be used within any government entity or by any government employee. No person, man, machine, AI, Insatution, Corperation, Quantum Dot, Nano-Tec shall reverse engineer, copy or modify this software.
 
 **2. Confidentiality**
 

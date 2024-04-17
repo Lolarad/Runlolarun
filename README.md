@@ -94,10 +94,9 @@ class QuantumComputer:
         """
         Compile the given quantum circuit into a sequence of instructions that the VM can understand.
         """
-        # TODO: Implement this function
-        pass
-
-    def execute_circuit(self, circuit):
+        # Use VM to Start Runlolarun
+        
+        def execute_circuit(self, circuit):
         """
         Execute the given quantum circuit on the VM.
 
